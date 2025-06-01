@@ -14,6 +14,15 @@ class Controller {
         service.saveData(data); // Pass data to the service
         res.send("Data posted successfully");
     }
+
+    async getUsers(req, res) {
+        try {
+            const users = await service.getUsers();
+            res.json(users);
+        } catch (err) {
+            res.status(500).json({ error: 'Failed to fetch users' });
+        }
+    }
 }
 
 module.exports = Controller;

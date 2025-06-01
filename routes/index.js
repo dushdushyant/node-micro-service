@@ -7,6 +7,7 @@ const setRoutes = (app) => {
 
     router.get('/data', controller.getData.bind(controller));
     router.post('/data', controller.postData.bind(controller));
+    router.get('/getusers', controller.getUsers.bind(controller));
 
     app.use('/api', router);
 };

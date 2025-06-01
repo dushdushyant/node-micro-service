@@ -1,3 +1,5 @@
+const pool = require('../utils/pgClient');
+
 class Service {
     fetchData() {
         // Return a sample Hello World message
@@ -7,6 +9,11 @@ class Service {
     saveData(data) {
         // Logic to save data to a data source
         console.log('Data received:', data);
+    }
+
+    async getUsers() {
+        const result = await pool.query('SELECT * FROM users');
+        return result.rows;
     }
 }
 
