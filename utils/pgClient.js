@@ -8,4 +8,10 @@ const pool = new Pool({
     port: 5432,
 });
 
+// Listen for connection errors
+pool.on('error', (err) => {
+    console.error('Unexpected error on idle PostgreSQL client:', err);
+    process.exit(-1);
+});
+
 module.exports = pool;
